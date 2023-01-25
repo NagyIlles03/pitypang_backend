@@ -1,0 +1,62 @@
+[
+    {
+        "month": "januar",
+        "days": 31,
+        "startDays": 1
+    },
+    {
+        "month": "februar",
+        "days": 28,
+        "startDays": 32
+    },
+    {
+        "month": "marcius",
+        "days": 31,
+        "startDays": 60
+    },
+    {
+        "month": "aprilis",
+        "days": 30,
+        "startDays": 91
+    },
+    {
+        "month": "majus",
+        "days": 31,
+        "startDays": 121
+    },
+    {
+        "month": "junius",
+        "days": 30,
+        "startDays": 152
+    },
+    {
+        "month": "julius",
+        "days": 31,
+        "startDays": 182
+    },
+    {
+        "month": "augusztus",
+        "days": 31,
+        "startDays": 213
+    },
+    {
+        "month": "szeptember",
+        "days": 30,
+        "startDays": 244
+    },
+    {
+        "month": "oktober",
+        "days": 31,
+        "startDays": 274
+    },
+    {
+        "month": "november",
+        "days": 30,
+        "startDays": 305
+    },
+    {
+        "month": "december",
+        "days": 31,
+        "startDays": 335
+    }
+]
