@@ -31,8 +31,7 @@ const bookingSchema = new Schema<IBooking>(
             required: true,
         },
         nameId: {
-            type: String,
-            unique: true,
+            type: Number,
             required: true,
         },
     },

@@ -5,5 +5,5 @@ export default interface IBooking {
     leaveDayNumber: number;
     guestNumber: number;
     hadBreakfast: boolean;
-    nameId: string;
+    nameId: number;
 }
