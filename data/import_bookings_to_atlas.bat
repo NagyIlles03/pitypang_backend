@@ -1,0 +1,1 @@
+"c:\Program Files\MongoDB\Server\5.0\bin\mongoimport.exe" --uri="mongodb+srv://user1:user1@pitypang.ki4zcjn.mongodb.net/Pitypang" --collection=bookings --drop --file=bookings.json --jsonArray
