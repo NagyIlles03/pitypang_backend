@@ -20,15 +20,15 @@ export default class BookingController implements IController {
     }
 
     private initializeRoutes() {
-        this.router.get(this.path, authMiddleware, this.getAllbookings);
-        this.router.get(`${this.path}/:id`, authMiddleware, this.getbookingById);
-        this.router.get(`${this.path}/:offset/:limit/:order/:sort/:keyword?`, authMiddleware, this.getPaginatedbookings);
-        this.router.patch(`${this.path}/:id`, [authMiddleware], this.modifybooking);
-        this.router.delete(`${this.path}/:id`, authMiddleware, this.deletebookings);
-        this.router.post(this.path, [authMiddleware], this.createbooking);
+        this.router.get(this.path, authMiddleware, this.getAllBookings);
+        this.router.get(`${this.path}/:id`, authMiddleware, this.getBookingById);
+        this.router.get(`${this.path}/:offset/:limit/:order/:sort/:keyword?`, authMiddleware, this.getPaginatedBookings);
+        this.router.patch(`${this.path}/:id`, [authMiddleware], this.modifyBooking);
+        this.router.delete(`${this.path}/:id`, authMiddleware, this.deleteBookings);
+        this.router.post(this.path, [authMiddleware], this.createBooking);
     }
 
-    private getAllbookings = async (req: Request, res: Response, next: NextFunction) => {
+    private getAllBookings = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const count = await this.bookingM.countDocuments();
             const bookings = await this.bookingM.find();
@@ -38,7 +38,7 @@ export default class BookingController implements IController {
         }
     };
 
-    private getPaginatedbookings = async (req: Request, res: Response, next: NextFunction) => {
+    private getPaginatedBookings = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const offset = parseInt(req.params.offset);
             const limit = parseInt(req.params.limit);
@@ -68,7 +68,7 @@ export default class BookingController implements IController {
         }
     };
 
-    private getbookingById = async (req: Request, res: Response, next: NextFunction) => {
+    private getBookingById = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
             if (Types.ObjectId.isValid(id)) {
@@ -86,7 +86,7 @@ export default class BookingController implements IController {
         }
     };
 
-    private modifybooking = async (req: Request, res: Response, next: NextFunction) => {
+    private modifyBooking = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
             if (Types.ObjectId.isValid(id)) {
@@ -105,7 +105,7 @@ export default class BookingController implements IController {
         }
     };
 
-    private createbooking = async (req: IRequestWithUser, res: Response, next: NextFunction) => {
+    private createBooking = async (req: IRequestWithUser, res: Response, next: NextFunction) => {
         try {
             const bookingData: Ibooking = req.body;
             const createdbooking = new this.bookingM({
@@ -120,7 +120,7 @@ export default class BookingController implements IController {
         }
     };
 
-    private deletebookings = async (req: Request, res: Response, next: NextFunction) => {
+    private deleteBookings = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
             if (Types.ObjectId.isValid(id)) {
