@@ -20,15 +20,15 @@ export default class personController implements IController {
     }
 
     private initializeRoutes() {
-        this.router.get(this.path, authMiddleware, this.getAllpeople);
-        this.router.get(`${this.path}/:id`, authMiddleware, this.getpersonById);
-        this.router.get(`${this.path}/:offset/:limit/:order/:sort/:keyword?`, authMiddleware, this.getPaginatedpeople);
-        this.router.patch(`${this.path}/:id`, [authMiddleware], this.modifyperson);
-        this.router.delete(`${this.path}/:id`, authMiddleware, this.deletepeople);
-        this.router.post(this.path, [authMiddleware], this.createperson);
+        this.router.get(this.path, authMiddleware, this.getAllPeople);
+        this.router.get(`${this.path}/:id`, authMiddleware, this.getPersonById);
+        this.router.get(`${this.path}/:offset/:limit/:order/:sort/:keyword?`, authMiddleware, this.getPaginatedPeople);
+        this.router.patch(`${this.path}/:id`, [authMiddleware], this.modifyPerson);
+        this.router.delete(`${this.path}/:id`, authMiddleware, this.deletePeople);
+        this.router.post(this.path, [authMiddleware], this.createPerson);
     }
 
-    private getAllpeople = async (req: Request, res: Response, next: NextFunction) => {
+    private getAllPeople = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const count = await this.personM.countDocuments();
             const people = await this.personM.find();
@@ -38,7 +38,7 @@ export default class personController implements IController {
         }
     };
 
-    private getPaginatedpeople = async (req: Request, res: Response, next: NextFunction) => {
+    private getPaginatedPeople = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const offset = parseInt(req.params.offset);
             const limit = parseInt(req.params.limit);
@@ -68,7 +68,7 @@ export default class personController implements IController {
         }
     };
 
-    private getpersonById = async (req: Request, res: Response, next: NextFunction) => {
+    private getPersonById = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
             if (Types.ObjectId.isValid(id)) {
@@ -86,7 +86,7 @@ export default class personController implements IController {
         }
     };
 
-    private modifyperson = async (req: Request, res: Response, next: NextFunction) => {
+    private modifyPerson = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
             if (Types.ObjectId.isValid(id)) {
@@ -105,7 +105,7 @@ export default class personController implements IController {
         }
     };
 
-    private createperson = async (req: IRequestWithUser, res: Response, next: NextFunction) => {
+    private createPerson = async (req: IRequestWithUser, res: Response, next: NextFunction) => {
         try {
             const personData: Iperson = req.body;
             const createdperson = new this.personM({
@@ -120,7 +120,7 @@ export default class personController implements IController {
         }
     };
 
-    private deletepeople = async (req: Request, res: Response, next: NextFunction) => {
+    private deletePeople = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
             if (Types.ObjectId.isValid(id)) {
