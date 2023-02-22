@@ -10,7 +10,7 @@ import { Types } from "mongoose";
 import authMiddleware from "../middleware/auth.middleware";
 import personModel from "./person.model";
 
-export default class personController implements IController {
+export default class PersonController implements IController {
     public path = "/people";
     public router = Router();
     private personM = personModel;
