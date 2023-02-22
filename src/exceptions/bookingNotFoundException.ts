@@ -1,11 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-const HttpException_1 = tslib_1.__importDefault(require("../../dist/exceptions/HttpException"));
-class PostNotFoundException extends HttpException_1.default {
-    constructor(id) {
-        super(404, `Post with id ${id} not found`);
+import HttpException from "./HttpException";
+
+export default class RecipeNotFoundException extends HttpException {
+    constructor(id: string) {
+        super(404, `Recipe with id ${id} not found`);
     }
 }
-exports.default = PostNotFoundException;
-//# sourceMappingURL=PostNotFoundException.js.map
