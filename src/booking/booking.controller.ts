@@ -10,7 +10,7 @@ import { Types } from "mongoose";
 import authMiddleware from "../middleware/auth.middleware";
 import bookingModel from "./booking.model";
 
-export default class bookingController implements IController {
+export default class BookingController implements IController {
     public path = "/bookings";
     public router = Router();
     private bookingM = bookingModel;
