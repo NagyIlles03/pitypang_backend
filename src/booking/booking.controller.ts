@@ -9,7 +9,6 @@ import IRequestWithUser from "../interfaces/requestWithUser.interface";
 import { Types } from "mongoose";
 import authMiddleware from "../middleware/auth.middleware";
 import bookingModel from "./booking.model";
-import validationMiddleware from "../middleware/validation.middleware";
 
 export default class bookingController implements IController {
     public path = "/bookings";
