@@ -5,6 +5,4 @@ import ReportController from "./report/report.controller";
 import UserController from "./user/user.controller";
 import BookingController from "./booking/booking.controller";
 
-const app = new App([new PostController(), new AuthenticationController(), new UserController(), new ReportController(), new BookingController()]);
-
-app.listen();
+new App([new PostController(), new AuthenticationController(), new UserController(), new ReportController(), new RecipeController()]);
