@@ -3,8 +3,6 @@ import AuthenticationController from "./authentication/authentication.controller
 import PersonController from "./person/person.controller";
 import ReportController from "./report/report.controller";
 import UserController from "./user/user.controller";
-import RecipeController from "./recipe/recipe.controller";
+import BookingController from "./booking/booking.controller";
 
-const app = new App([new PersonController(), new AuthenticationController(), new UserController(), new ReportController(), new RecipeController()]);
-
-app.listen();
+new App([new PostController(), new AuthenticationController(), new UserController(), new ReportController(), new RecipeController()]);
