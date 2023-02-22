@@ -5,4 +5,4 @@ import ReportController from "./report/report.controller";
 import UserController from "./user/user.controller";
 import BookingController from "./booking/booking.controller";
 
-new App([new PostController(), new AuthenticationController(), new UserController(), new ReportController(), new RecipeController()]);
+new App([new PersonController(), new AuthenticationController(), new UserController(), new ReportController(), new BookingController()]);
