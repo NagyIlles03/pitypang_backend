@@ -1270,7 +1270,47 @@
                     }
                 }
             },
-
+            "booking": {
+                "type": "object",
+                "required": ["roomNumber", "arrivalDayNumber", "leaveDayNumber", "guestNumber", "hadBreakfast", "nameId"],
+                "properties": {
+                    "_id": {
+                        "type": "number",
+                        "description": "PK - A foglalás azonosítója.",
+                        "example": 1
+                    },
+                    "roomNumber": {
+                        "type": "number",
+                        "description": "A lefoglalt szoba száma.",
+                        "example": 1
+                    },
+                    "arrivalDayNumber": {
+                        "type": "number",
+                        "description": "Megérkezés napjának száma.",
+                        "example": 1
+                    },
+                    "leaveDayNumber": {
+                        "type": "number",
+                        "description": "Távozás napjának száma.",
+                        "example": 1
+                    },
+                    "guestNumber": {
+                        "type": "number",
+                        "description": "Vendégek száma.",
+                        "example": 1
+                    },
+                    "hadBreakfast": {
+                        "type": "boolean",
+                        "description": "Reggeli",
+                        "example": false
+                    },
+                    "nameId": {
+                        "type": "number",
+                        "description": "FK - A foglaló személy.",
+                        "example": 1
+                    }
+                }
+            },
             "post": {
                 "type": "object",
                 "required": ["title"],
