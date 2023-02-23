@@ -977,6 +977,24 @@
     },
     "components": {
         "schemas": {
+            "person":{
+                "type": "object",
+                "required":["name"],
+                "properties":{
+                    "_id":{
+                        "type":"number",
+                        "description":"PK - Az ember azonosítója.",
+                        "example":1
+                        
+                    },
+                    "name":{
+                        "type":"string",
+                        "description":"A foglaló neve",
+                        "example":"Huszar_Hajnalka"
+                    }
+                }
+            },
+
             "post": {
                 "type": "object",
                 "required": ["title"],
