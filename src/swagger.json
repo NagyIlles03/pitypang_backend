@@ -14,9 +14,9 @@
         }
     ],
     "paths": {
-        "/api/posts": {
+        "/api/people": {
             "get": {
-                "tags": ["posts"],
+                "tags": ["people"],
                 "summary": "Összes post lekérdezése.",
                 "description": "Az összes post adatát tudjuk lekérdezni.",
                 "responses": {
@@ -52,7 +52,7 @@
                 }
             },
             "post": {
-                "tags": ["posts"],
+                "tags": ["people"],
                 "summary": "Új post mentése.",
                 "description": "Új post mentése a 'kategoriak' táblában",
                 "requestBody": {
@@ -96,9 +96,9 @@
                 }
             }
         },
-        "/api/posts/{id}": {
+        "/api/people/{id}": {
             "get": {
-                "tags": ["posts"],
+                "tags": ["people"],
                 "summary": "Egy post lekérdezése.",
                 "description": "Az id paraméterben megadott post adatait kérdezhetjük le.",
                 "parameters": [
@@ -160,7 +160,7 @@
                 }
             },
             "patch": {
-                "tags": ["posts"],
+                "tags": ["people"],
                 "summary": "post módosítása (PATCH).",
                 "description": "A paraméterben megadott post adatait módosítja a végpont.",
                 "parameters": [
@@ -216,7 +216,7 @@
                 }
             },
             "put": {
-                "tags": ["posts"],
+                "tags": ["people"],
                 "summary": "post módosítása (PUT).",
                 "description": "A paraméterben megadott post adatait módosítja a végpont.",
                 "parameters": [
@@ -272,7 +272,7 @@
                 }
             },
             "delete": {
-                "tags": ["posts"],
+                "tags": ["people"],
                 "summary": "post törlése.",
                 "description": "A paraméterben megadott postot törli a végpont.",
                 "parameters": [
@@ -334,9 +334,9 @@
                 }
             }
         },
-        "/api/posts/{kategoriaNev}/hirdetesek": {
+        "/api/people/{kategoriaNev}/hirdetesek": {
             "get": {
-                "tags": ["posts"],
+                "tags": ["people"],
                 "summary": "receptek lekérdezése postnév szerint.",
                 "description": "A 'kategoriaNev' paraméterben megadott kategóriával és a post összes receptével tér vissza a végpont.",
                 "parameters": [
@@ -398,9 +398,9 @@
                 }
             }
         },
-        "/api/recipes": {
+        "/api/bookings": {
             "get": {
-                "tags": ["recipes"],
+                "tags": ["bookings"],
                 "summary": "Összes recept lekérdezése.",
                 "description": "Az összes recept adatát tudjuk lekérdezni.",
                 "responses": {
@@ -436,7 +436,7 @@
                 }
             },
             "post": {
-                "tags": ["recipes"],
+                "tags": ["bookings"],
                 "summary": "Új recept mentése.",
                 "description": "Az új recept mentése a 'hirdetesek' táblában",
                 "requestBody": {
@@ -480,9 +480,9 @@
                 }
             }
         },
-        "/api/recipes/{id}": {
+        "/api/bookings/{id}": {
             "get": {
-                "tags": ["recipes"],
+                "tags": ["bookings"],
                 "summary": "Egy recept lekérdezése.",
                 "description": "Az id paraméterben megadott recept adatait kérdezhetjük le.",
                 "parameters": [
@@ -544,7 +544,7 @@
                 }
             },
             "patch": {
-                "tags": ["recipes"],
+                "tags": ["bookings"],
                 "summary": "recept módosítása (PATCH).",
                 "description": "A paraméterben megadott recept adatait módosítja a végpont.",
                 "parameters": [
@@ -600,7 +600,7 @@
                 }
             },
             "put": {
-                "tags": ["recipes"],
+                "tags": ["bookings"],
                 "summary": "recept módosítása (PUT).",
                 "description": "A paraméterben megadott recept adatait módosítja a végpont.",
                 "parameters": [
@@ -656,7 +656,7 @@
                 }
             },
             "delete": {
-                "tags": ["recipes"],
+                "tags": ["bookings"],
                 "summary": "recept törlése.",
                 "description": "A paraméterben megadott receptt törli a végpont.",
                 "parameters": [
@@ -702,9 +702,9 @@
                 }
             }
         },
-        "/api/recipes/order/:mezo": {
+        "/api/bookings/order/:mezo": {
             "get": {
-                "tags": ["recipes"],
+                "tags": ["bookings"],
                 "summary": "Összes recept lekérdezése rendezéssel.",
                 "description": "Az összes recept adatát tudjuk lekérdezni és a paraméterben megadott mező szerint rendezni.",
                 "parameters": [
@@ -752,9 +752,9 @@
                 }
             }
         },
-        "/api/recipes/keyword/{keyword}": {
+        "/api/bookings/keyword/{keyword}": {
             "get": {
-                "tags": ["recipes"],
+                "tags": ["bookings"],
                 "summary": "Kulcsszavas szűrés mindkét táblából.",
                 "description": "Azok a receptek, melyek leírásában, vagy postnevében megtalálható a megadott kulcsszó.",
                 "parameters": [
@@ -802,9 +802,9 @@
                 }
             }
         },
-        "/api/recipes/{offset}/{limit}/{field}": {
+        "/api/bookings/{offset}/{limit}/{field}": {
             "get": {
-                "tags": ["recipes"],
+                "tags": ["bookings"],
                 "summary": "Paginált adatok lekérése.",
                 "description": "receptek lekérdezése lapozáshoz.",
                 "parameters": [
@@ -883,9 +883,9 @@
                 }
             }
         },
-        "/api/recipes/{offset}/{limit}/{field}/{filter}": {
+        "/api/bookings/{offset}/{limit}/{field}/{filter}": {
             "get": {
-                "tags": ["recipes"],
+                "tags": ["bookings"],
                 "summary": "Paginált adatok lekérése szűréssel.",
                 "description": "receptek lekérdezése lapozáshoz szűréssel.",
                 "parameters": [
