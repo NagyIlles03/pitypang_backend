@@ -1,4 +1,8 @@
 # pitypang_backend
 2011. október 21. Pitypang érettségi feladat megoldása Express.js backend keretrendszerrel
 
-https://pitypang-api.cyclic.app
+## Elérhetőség
+https://pitypang-api.cyclic.app/api/
+
+## Dokumentáció
+https://pitypang-api.cyclic.app/docs/
