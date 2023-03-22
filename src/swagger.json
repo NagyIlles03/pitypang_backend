@@ -14,9 +14,9 @@
         }
     ],
     "paths": {
-        "/api/people": {
+        "/api/person": {
             "get": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "Összes vendég lekérdezése.",
                 "description": "Az összes vendég adatát tudjuk lekérdezni.",
                 "responses": {
@@ -27,7 +27,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/people"
+                                        "$ref": "#/components/schemas/person"
                                     }
                                 }
                             }
@@ -52,7 +52,7 @@
                 }
             },
             "post": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "Új vendég mentése.",
                 "description": "Új vendég mentése a 'kategoriak' táblában",
                 "requestBody": {
@@ -60,7 +60,7 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/people"
+                                "$ref": "#/components/schemas/person"
                             }
                         }
                     }
@@ -72,7 +72,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/people"
+                                    "$ref": "#/components/schemas/person"
                                 }
                             }
                         }
@@ -96,9 +96,9 @@
                 }
             }
         },
-        "/api/people/{id}": {
+        "/api/person/{id}": {
             "get": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "Egy vendég lekérdezése.",
                 "description": "Az id paraméterben megadott vendég adatait kérdezhetjük le.",
                 "parameters": [
@@ -120,7 +120,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/people"
+                                    "$ref": "#/components/schemas/person"
                                 }
                             }
                         }
@@ -160,7 +160,7 @@
                 }
             },
             "patch": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "vendég módosítása (PATCH).",
                 "description": "A paraméterben megadott vendég adatait módosítja a végpont.",
                 "parameters": [
@@ -180,7 +180,7 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/people"
+                                "$ref": "#/components/schemas/person"
                             }
                         }
                     }
@@ -192,7 +192,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/people"
+                                    "$ref": "#/components/schemas/person"
                                 }
                             }
                         }
@@ -216,7 +216,7 @@
                 }
             },
             "put": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "vendég módosítása (PUT).",
                 "description": "A paraméterben megadott vendég adatait módosítja a végpont.",
                 "parameters": [
@@ -236,7 +236,7 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/people"
+                                "$ref": "#/components/schemas/person"
                             }
                         }
                     }
@@ -248,7 +248,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/people"
+                                    "$ref": "#/components/schemas/person"
                                 }
                             }
                         }
@@ -272,7 +272,7 @@
                 }
             },
             "delete": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "vendég törlése.",
                 "description": "A paraméterben megadott vendéget törli a végpont.",
                 "parameters": [
@@ -334,9 +334,9 @@
                 }
             }
         },
-        "/api/people/{kategoriaNev}/hirdetesek": {
+        "/api/person/{kategoriaNev}/hirdetesek": {
             "get": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "foglalás lekérdezése vendég név szerint.",
                 "description": "A 'kategoriaNev' paraméterben megadott kategóriával és a vendég összes foglalásával tér vissza a végpont.",
                 "parameters": [
@@ -358,7 +358,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/people"
+                                    "$ref": "#/components/schemas/person"
                                 }
                             }
                         }
