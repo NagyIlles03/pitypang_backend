@@ -274,7 +274,7 @@
             "delete": {
                 "tags": ["people"],
                 "summary": "vendég törlése.",
-                "description": "A paraméterben megadott vendégot törli a végpont.",
+                "description": "A paraméterben megadott vendéget törli a végpont.",
                 "parameters": [
                     {
                         "name": "id",
