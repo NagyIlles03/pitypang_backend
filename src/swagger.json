@@ -17,8 +17,8 @@
         "/api/people": {
             "get": {
                 "tags": ["people"],
-                "summary": "Összes post lekérdezése.",
-                "description": "Az összes post adatát tudjuk lekérdezni.",
+                "summary": "Összes vendég lekérdezése.",
+                "description": "Az összes vendég adatát tudjuk lekérdezni.",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -53,8 +53,8 @@
             },
             "post": {
                 "tags": ["people"],
-                "summary": "Új post mentése.",
-                "description": "Új post mentése a 'kategoriak' táblában",
+                "summary": "Új vendég mentése.",
+                "description": "Új vendég mentése a 'kategoriak' táblában",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -99,12 +99,12 @@
         "/api/people/{id}": {
             "get": {
                 "tags": ["people"],
-                "summary": "Egy post lekérdezése.",
-                "description": "Az id paraméterben megadott post adatait kérdezhetjük le.",
+                "summary": "Egy vendég lekérdezése.",
+                "description": "Az id paraméterben megadott vendég adatait kérdezhetjük le.",
                 "parameters": [
                     {
                         "name": "id",
-                        "description": "A post azonosítója.",
+                        "description": "A vendég azonosítója.",
                         "in": "path",
                         "schema": {
                             "type": "number",
@@ -150,7 +150,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Ezzel az azonosítóval (id) nincs post!"
+                                            "example": "Ezzel az azonosítóval (id) nincs vendég!"
                                         }
                                     }
                                 }
@@ -161,12 +161,12 @@
             },
             "patch": {
                 "tags": ["people"],
-                "summary": "post módosítása (PATCH).",
-                "description": "A paraméterben megadott post adatait módosítja a végpont.",
+                "summary": "vendég módosítása (PATCH).",
+                "description": "A paraméterben megadott vendég adatait módosítja a végpont.",
                 "parameters": [
                     {
                         "name": "id",
-                        "description": "A PATCH metódussal módosítandó post azonosítója (PK).",
+                        "description": "A PATCH metódussal módosítandó vendég azonosítója (PK).",
                         "in": "path",
                         "schema": {
                             "type": "number",
@@ -187,7 +187,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "OK (A módosított post adatokkal tér vissza.)",
+                        "description": "OK (A módosított vendég adatokkal tér vissza.)",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -206,7 +206,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "A megadott post (id) nem létezik."
+                                            "example": "A megadott vendég (id) nem létezik."
                                         }
                                     }
                                 }
@@ -217,12 +217,12 @@
             },
             "put": {
                 "tags": ["people"],
-                "summary": "post módosítása (PUT).",
-                "description": "A paraméterben megadott post adatait módosítja a végpont.",
+                "summary": "vendég módosítása (PUT).",
+                "description": "A paraméterben megadott vendég adatait módosítja a végpont.",
                 "parameters": [
                     {
                         "name": "id",
-                        "description": "A PUT metódussal módosítandó post azonosítója (PK).",
+                        "description": "A PUT metódussal módosítandó vendég azonosítója (PK).",
                         "in": "path",
                         "schema": {
                             "type": "number",
@@ -243,7 +243,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "OK (A módosított post adataival tér vissza.)",
+                        "description": "OK (A módosított vendég adataival tér vissza.)",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -262,7 +262,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "A megadott post (id) nem létezik."
+                                            "example": "A megadott vendég (id) nem létezik."
                                         }
                                     }
                                 }
@@ -273,12 +273,12 @@
             },
             "delete": {
                 "tags": ["people"],
-                "summary": "post törlése.",
-                "description": "A paraméterben megadott postot törli a végpont.",
+                "summary": "vendég törlése.",
+                "description": "A paraméterben megadott vendégot törli a végpont.",
                 "parameters": [
                     {
                         "name": "id",
-                        "description": "A törlendő post azonosítója (PK).",
+                        "description": "A törlendő vendég azonosítója (PK).",
                         "in": "path",
                         "schema": {
                             "type": "number",
@@ -289,7 +289,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK (A post törölve.)",
+                        "description": "OK (A vendég törölve.)",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -308,7 +308,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "A megadott post (id) nem létezik."
+                                            "example": "A megadott vendég (id) nem létezik."
                                         }
                                     }
                                 }
@@ -337,12 +337,12 @@
         "/api/people/{kategoriaNev}/hirdetesek": {
             "get": {
                 "tags": ["people"],
-                "summary": "receptek lekérdezése postnév szerint.",
-                "description": "A 'kategoriaNev' paraméterben megadott kategóriával és a post összes receptével tér vissza a végpont.",
+                "summary": "foglalás lekérdezése vendég név szerint.",
+                "description": "A 'kategoriaNev' paraméterben megadott kategóriával és a vendég összes foglalásával tér vissza a végpont.",
                 "parameters": [
                     {
                         "name": "kategoriaNev",
-                        "description": "A post neve.",
+                        "description": "A vendég neve.",
                         "in": "path",
                         "schema": {
                             "type": "string",
@@ -388,7 +388,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Ebben a kategóriában (Monocikli) nem találtam receptt!"
+                                            "example": "Ebben a kategóriában (Monocikli) nem találtam foglalást!"
                                         }
                                     }
                                 }
@@ -401,8 +401,8 @@
         "/api/bookings": {
             "get": {
                 "tags": ["bookings"],
-                "summary": "Összes recept lekérdezése.",
-                "description": "Az összes recept adatát tudjuk lekérdezni.",
+                "summary": "Összes foglalás lekérdezése.",
+                "description": "Az összes foglalás adatát tudjuk lekérdezni.",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -437,8 +437,8 @@
             },
             "post": {
                 "tags": ["bookings"],
-                "summary": "Új recept mentése.",
-                "description": "Az új recept mentése a 'hirdetesek' táblában",
+                "summary": "Új foglalás mentése.",
+                "description": "Az új foglalás mentése a 'hirdetesek' táblában",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -451,7 +451,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "OK (Az új, elmentett recepttel tér vissza.)",
+                        "description": "OK (Az új, elmentett foglalással tér vissza.)",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -483,12 +483,12 @@
         "/api/bookings/{id}": {
             "get": {
                 "tags": ["bookings"],
-                "summary": "Egy recept lekérdezése.",
-                "description": "Az id paraméterben megadott recept adatait kérdezhetjük le.",
+                "summary": "Egy foglalás lekérdezése.",
+                "description": "Az id paraméterben megadott foglalás adatait kérdezhetjük le.",
                 "parameters": [
                     {
                         "name": "id",
-                        "description": "A recept azonosítója.",
+                        "description": "A foglalás azonosítója.",
                         "in": "path",
                         "schema": {
                             "type": "number",
@@ -534,7 +534,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Ezzel az azonosítóval (id) nincs recept!"
+                                            "example": "Ezzel az azonosítóval (id) nincs foglalás!"
                                         }
                                     }
                                 }
@@ -545,12 +545,12 @@
             },
             "patch": {
                 "tags": ["bookings"],
-                "summary": "recept módosítása (PATCH).",
-                "description": "A paraméterben megadott recept adatait módosítja a végpont.",
+                "summary": "foglalás módosítása (PATCH).",
+                "description": "A paraméterben megadott foglalás adatait módosítja a végpont.",
                 "parameters": [
                     {
                         "name": "id",
-                        "description": "A PATCH metódussal módosítandó recept azonosítója (PK).",
+                        "description": "A PATCH metódussal módosítandó foglalás azonosítója (PK).",
                         "in": "path",
                         "schema": {
                             "type": "number",
@@ -571,7 +571,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "OK (A módosított receptsel tér vissza.)",
+                        "description": "OK (A módosított foglalással tér vissza.)",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -590,7 +590,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "A megadott recept (id) nem létezik."
+                                            "example": "A megadott foglalás (id) nem létezik."
                                         }
                                     }
                                 }
@@ -601,12 +601,12 @@
             },
             "put": {
                 "tags": ["bookings"],
-                "summary": "recept módosítása (PUT).",
-                "description": "A paraméterben megadott recept adatait módosítja a végpont.",
+                "summary": "foglalás módosítása (PUT).",
+                "description": "A paraméterben megadott foglalás adatait módosítja a végpont.",
                 "parameters": [
                     {
                         "name": "id",
-                        "description": "A PUT metódussal módosítandó recept azonosítója (PK).",
+                        "description": "A PUT metódussal módosítandó foglalás azonosítója (PK).",
                         "in": "path",
                         "schema": {
                             "type": "number",
@@ -627,7 +627,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "OK (A módosított receptsel tér vissza.)",
+                        "description": "OK (A módosított fogalalással tér vissza.)",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -646,7 +646,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "A megadott recept (id) nem létezik."
+                                            "example": "A megadott foglalás (id) nem létezik."
                                         }
                                     }
                                 }
@@ -657,12 +657,12 @@
             },
             "delete": {
                 "tags": ["bookings"],
-                "summary": "recept törlése.",
-                "description": "A paraméterben megadott receptt törli a végpont.",
+                "summary": "foglalás törlése.",
+                "description": "A paraméterben megadott foglalást törli a végpont.",
                 "parameters": [
                     {
                         "name": "id",
-                        "description": "A törlendő recept azonosítója (PK).",
+                        "description": "A törlendő foglalás azonosítója (PK).",
                         "in": "path",
                         "schema": {
                             "type": "number",
@@ -673,7 +673,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK (A recept törölve.)",
+                        "description": "OK (A foglalás törölve.)",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -692,7 +692,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "A megadott recept (id) nem létezik."
+                                            "example": "A megadott foglalás (id) nem létezik."
                                         }
                                     }
                                 }
@@ -705,8 +705,8 @@
         "/api/bookings/order/:mezo": {
             "get": {
                 "tags": ["bookings"],
-                "summary": "Összes recept lekérdezése rendezéssel.",
-                "description": "Az összes recept adatát tudjuk lekérdezni és a paraméterben megadott mező szerint rendezni.",
+                "summary": "Összes foglalás lekérdezése rendezéssel.",
+                "description": "Az összes foglalás adatát tudjuk lekérdezni és a paraméterben megadott mező szerint rendezni.",
                 "parameters": [
                     {
                         "name": "mezo",
@@ -756,7 +756,7 @@
             "get": {
                 "tags": ["bookings"],
                 "summary": "Kulcsszavas szűrés mindkét táblából.",
-                "description": "Azok a receptek, melyek leírásában, vagy postnevében megtalálható a megadott kulcsszó.",
+                "description": "Azok a foglalások, melyek leírásában, vagy vendég nevében megtalálható a megadott kulcsszó.",
                 "parameters": [
                     {
                         "name": "keyword",
@@ -806,7 +806,7 @@
             "get": {
                 "tags": ["bookings"],
                 "summary": "Paginált adatok lekérése.",
-                "description": "receptek lekérdezése lapozáshoz.",
+                "description": "foglalások lekérdezése lapozáshoz.",
                 "parameters": [
                     {
                         "name": "offset",
@@ -887,7 +887,7 @@
             "get": {
                 "tags": ["bookings"],
                 "summary": "Paginált adatok lekérése szűréssel.",
-                "description": "receptek lekérdezése lapozáshoz szűréssel.",
+                "description": "foglalások lekérdezése lapozáshoz szűréssel.",
                 "parameters": [
                     {
                         "name": "offset",
@@ -1040,23 +1040,23 @@
                 "properties": {
                     "_id": {
                         "type": "string",
-                        "description": "PK - A post azonosítója (ObjectID).",
+                        "description": "PK - A vendég azonosítója (ObjectID).",
                         "example": "61b5f28df39e4edcf5b8a3e7"
                     },
                     "author": {
                         "type": "string",
-                        "description": "FK - A post szerzője (ObjectID).",
+                        "description": "FK - A vendég szerzője (ObjectID).",
                         "example": "61b5e9c0f39e4edcf5b8a3b9"
                     },
                     "content": {
                         "type": "string",
-                        "description": "A post tartalma.",
+                        "description": "A vendég tartalma.",
                         "example": "Frankie Dunn pályája során számos fantasztikus bunyóst edzett és menedzselt. Legfőbb tanítása, mely vezérli az életét is, hogy a legfontosabb az, hogy mindig védd magad. Mióta elidegenedett a lányától, Frankie jó ideje senkit sem engedett közel magához. Egyetlen barátja Hepaj, az egykori bokszoló, aki rendben tartja Frankie edzőtermét, és tudja, hogy a mogorva külső olyan embert takar, aki az elmúlt 23 évben szinte minden nap misére járt, keresve a megbocsátást, amely valahogy mégsem adatik meg neki. Aztán egy nap Maggie Fitzgerald besétál az edzőterembe. Maggie-nek sosem jutott sok semmiből, de van benne valami, ami csak keveseknek adatik meg: tudja, mit akar, és bármit hajlandó megtenni érte. Az élete állandó küzdelem, amit nyers tehetségével, kizökkenthetetlen koncentrálásával és elképesztő akaraterejével képes túlélni."
                     },
                     "title": {
                         "type": "string",
                         "maxLength": 50,
-                        "description": "A post címe címe.",
+                        "description": "A vendég címe címe.",
                         "example": "Millió dolláros bébi 2004"
                     }
                 }
@@ -1067,18 +1067,18 @@
                 "properties": {
                     "_id": {
                         "type": "string",
-                        "description": "PK - A recept azonosítója (ObjectID).",
+                        "description": "PK - A foglalás azonosítója (ObjectID).",
                         "example": "61daf48ba5775848e99f555b"
                     },
                     "author": {
                         "type": "string",
-                        "description": "FK - A recept szerzője (ObjectID).",
+                        "description": "FK - A foglalás szerzője (ObjectID).",
                         "example": "61b5e9c0f39e4edcf5b8a3b9"
                     },
                     "recipeName": {
                         "type": "string",
                         "maxLength": 50,
-                        "description": "A recept neve.",
+                        "description": "A foglalás neve.",
                         "example": "PENNE ALL ARRABBIATA CSIRKEMELLEL"
                     },
                     "imageURL": {
