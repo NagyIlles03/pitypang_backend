@@ -1397,6 +1397,19 @@
                     }
                 }
             },
+            "ErrorSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "error.message value"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "example": 400
+                    }
+                }
+            },
             "user": {
                 "type": "object",
                 "required": ["name", "email", "email_verified", "auto_login", "picture", "password", "roles"],
