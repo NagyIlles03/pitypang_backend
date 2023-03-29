@@ -71,7 +71,7 @@ export default class BookingController implements IController {
     private getBookingById = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
-            if (Types.ObjectId.isValid(id)) {
+            if (!isNaN(Number(id))) {
                 const booking = await this.bookingM.findById(id).populate("person");
                 if (booking) {
                     res.send(booking);
@@ -89,7 +89,7 @@ export default class BookingController implements IController {
     private modifyBooking = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
-            if (Types.ObjectId.isValid(id)) {
+            if (!isNaN(Number(id))) {
                 const bookingData: Ibooking = req.body;
                 const booking = await this.bookingM.findByIdAndUpdate(id, bookingData, { new: true });
                 if (booking) {
@@ -123,7 +123,7 @@ export default class BookingController implements IController {
     private deleteBookings = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
-            if (Types.ObjectId.isValid(id)) {
+            if (!isNaN(Number(id))) {
                 const successResponse = await this.bookingM.findByIdAndDelete(id);
                 if (successResponse) {
                     res.sendStatus(200);
