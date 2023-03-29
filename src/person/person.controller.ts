@@ -113,7 +113,6 @@ export default class PersonController implements IController {
                 author: req.user._id,
             });
             const savedperson = await createdperson.save();
-            await savedperson.populate("author", "-password");
             res.send(savedperson);
         } catch (error) {
             next(new HttpException(400, error.message));
