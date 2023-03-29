@@ -20,9 +20,9 @@ export default class PersonController implements IController {
     }
 
     private initializeRoutes() {
-        this.router.get(this.path, authMiddleware, this.getAllPeople);
-        this.router.get(`${this.path}/:id`, authMiddleware, this.getPersonById);
-        this.router.get(`${this.path}/:offset/:limit/:order/:sort/:keyword?`, authMiddleware, this.getPaginatedPeople);
+        this.router.get(this.path, this.getAllPeople);
+        this.router.get(`${this.path}/:id`, this.getPersonById);
+        this.router.get(`${this.path}/:offset/:limit/:order/:sort/:keyword?`, this.getPaginatedPeople);
         this.router.patch(`${this.path}/:id`, [authMiddleware], this.modifyPerson);
         this.router.delete(`${this.path}/:id`, authMiddleware, this.deletePeople);
         this.router.post(this.path, [authMiddleware], this.createPerson);
