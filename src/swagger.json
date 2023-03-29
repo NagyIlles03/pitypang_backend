@@ -14,9 +14,9 @@
         }
     ],
     "paths": {
-        "/api/person": {
+        "/api/people": {
             "get": {
-                "tags": ["person"],
+                "tags": ["people"],
                 "summary": "Összes vendég lekérdezése.",
                 "description": "Az összes vendég adatát tudjuk lekérdezni.",
                 "responses": {
@@ -52,7 +52,7 @@
                 }
             },
             "post": {
-                "tags": ["person"],
+                "tags": ["people"],
                 "summary": "Új vendég mentése.",
                 "description": "Új vendég mentése a 'kategoriak' táblában",
                 "requestBody": {
@@ -439,7 +439,7 @@
                 }
             }
         },
-        "/api/person/{id}": {
+        "/api/people/{id}": {
             "get": {
                 "tags": ["person"],
                 "summary": "Egy vendég lekérdezése.",
@@ -677,7 +677,7 @@
                 }
             }
         },
-        "/api/person/{kategoriaNev}/hirdetesek": {
+        "/api/people/{kategoriaNev}/hirdetesek": {
             "get": {
                 "tags": ["person"],
                 "summary": "foglalás lekérdezése vendég név szerint.",
@@ -1320,7 +1320,7 @@
     },
     "components": {
         "schemas": {
-            "person": {
+            "people": {
                 "type": "object",
                 "required": ["name"],
                 "properties": {
