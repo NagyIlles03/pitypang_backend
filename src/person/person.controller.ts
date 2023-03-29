@@ -72,7 +72,7 @@ export default class PersonController implements IController {
         try {
             const id = req.params.id;
             if (Types.ObjectId.isValid(id)) {
-                const person = await this.personM.findById(id).populate("author", "-password");
+                const person = await this.personM.findById(id);
                 if (person) {
                     res.send(person);
                 } else {
@@ -113,7 +113,6 @@ export default class PersonController implements IController {
                 author: req.user._id,
             });
             const savedperson = await createdperson.save();
-            await savedperson.populate("author", "-password");
             res.send(savedperson);
         } catch (error) {
             next(new HttpException(400, error.message));
