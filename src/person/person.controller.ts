@@ -11,7 +11,7 @@ import authMiddleware from "../middleware/auth.middleware";
 import personModel from "./person.model";
 
 export default class PersonController implements IController {
-    public path = "/people";
+    public path = "/api/people";
     public router = Router();
     private personM = personModel;
 
