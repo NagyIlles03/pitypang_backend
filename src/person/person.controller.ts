@@ -6,7 +6,6 @@ import IdNotValidException from "../exceptions/IdNotValidException";
 import Iperson from "./person.interface";
 import personNotFoundException from "../exceptions/personNotFoundException";
 import IRequestWithUser from "../interfaces/requestWithUser.interface";
-import { Types } from "mongoose";
 import authMiddleware from "../middleware/auth.middleware";
 import personModel from "./person.model";
 
