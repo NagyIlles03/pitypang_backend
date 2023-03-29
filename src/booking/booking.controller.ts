@@ -11,7 +11,7 @@ import authMiddleware from "../middleware/auth.middleware";
 import bookingModel from "./booking.model";
 
 export default class BookingController implements IController {
-    public path = "/bookings";
+    public path = "/api/bookings";
     public router = Router();
     private bookingM = bookingModel;
 
