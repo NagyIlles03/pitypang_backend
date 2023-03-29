@@ -20,9 +20,9 @@ export default class BookingController implements IController {
     }
 
     private initializeRoutes() {
-        this.router.get(this.path, authMiddleware, this.getAllBookings);
-        this.router.get(`${this.path}/:id`, authMiddleware, this.getBookingById);
-        this.router.get(`${this.path}/:offset/:limit/:order/:sort/:keyword?`, authMiddleware, this.getPaginatedBookings);
+        this.router.get(this.path, this.getAllBookings);
+        this.router.get(`${this.path}/:id`, this.getBookingById);
+        this.router.get(`${this.path}/:offset/:limit/:order/:sort/:keyword?`, this.getPaginatedBookings);
         this.router.patch(`${this.path}/:id`, [authMiddleware], this.modifyBooking);
         this.router.delete(`${this.path}/:id`, authMiddleware, this.deleteBookings);
         this.router.post(this.path, [authMiddleware], this.createBooking);
