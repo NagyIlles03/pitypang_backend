@@ -72,7 +72,7 @@ export default class BookingController implements IController {
         try {
             const id = req.params.id;
             if (Types.ObjectId.isValid(id)) {
-                const booking = await this.bookingM.findById(id).populate("author", "-password");
+                const booking = await this.bookingM.findById(id).populate("person");
                 if (booking) {
                     res.send(booking);
                 } else {
@@ -113,7 +113,7 @@ export default class BookingController implements IController {
                 author: req.user._id,
             });
             const savedbooking = await createdbooking.save();
-            await savedbooking.populate("author", "-password");
+            await savedbooking.populate("person");
             res.send(savedbooking);
         } catch (error) {
             next(new HttpException(400, error.message));
