@@ -71,7 +71,7 @@ export default class PersonController implements IController {
     private getPersonById = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
-            if (Types.ObjectId.isValid(id)) {
+            if (!isNaN(Number(id))) {
                 const person = await this.personM.findById(id);
                 if (person) {
                     res.send(person);
@@ -89,7 +89,7 @@ export default class PersonController implements IController {
     private modifyPerson = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
-            if (Types.ObjectId.isValid(id)) {
+            if (!isNaN(Number(id))) {
                 const personData: Iperson = req.body;
                 const person = await this.personM.findByIdAndUpdate(id, personData, { new: true });
                 if (person) {
@@ -122,7 +122,7 @@ export default class PersonController implements IController {
     private deletePeople = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
-            if (Types.ObjectId.isValid(id)) {
+            if (!isNaN(Number(id))) {
                 const successResponse = await this.personM.findByIdAndDelete(id);
                 if (successResponse) {
                     res.sendStatus(200);
