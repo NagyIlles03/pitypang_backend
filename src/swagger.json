@@ -1320,7 +1320,7 @@
     },
     "components": {
         "schemas": {
-            "people": {
+            "person": {
                 "type": "object",
                 "required": ["name"],
                 "properties": {
