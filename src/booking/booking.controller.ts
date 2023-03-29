@@ -6,7 +6,6 @@ import IdNotValidException from "../exceptions/IdNotValidException";
 import Ibooking from "./booking.interface";
 import bookingNotFoundException from "../exceptions/bookingNotFoundException";
 import IRequestWithUser from "../interfaces/requestWithUser.interface";
-import { Types } from "mongoose";
 import authMiddleware from "../middleware/auth.middleware";
 import bookingModel from "./booking.model";
 
