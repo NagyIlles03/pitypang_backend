@@ -3,7 +3,7 @@
     "info": {
         "title": "REST API minta backend",
         "version": "1.0.0",
-        "description": "<img alt='HaHu' height='400px' src='https://ibb.co/8b6yVPs' />"
+        "description": "<img alt='HaHu' height='400px' src='https://i.ibb.co/G9cZjCp/Pitypang.png' />"
     },
     "servers": [
         {
@@ -14,9 +14,9 @@
         }
     ],
     "paths": {
-        "/api/people": {
+        "/api/person": {
             "get": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "Összes vendég lekérdezése.",
                 "description": "Az összes vendég adatát tudjuk lekérdezni.",
                 "responses": {
@@ -27,7 +27,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/people"
+                                        "$ref": "#/components/schemas/person"
                                     }
                                 }
                             }
@@ -52,7 +52,7 @@
                 }
             },
             "post": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "Új vendég mentése.",
                 "description": "Új vendég mentése a 'kategoriak' táblában",
                 "requestBody": {
@@ -60,7 +60,7 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/people"
+                                "$ref": "#/components/schemas/person"
                             }
                         }
                     }
@@ -72,7 +72,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/people"
+                                    "$ref": "#/components/schemas/person"
                                 }
                             }
                         }
@@ -96,9 +96,352 @@
                 }
             }
         },
-        "/api/people/{id}": {
+        "/auth/login": {
+            "post": {
+                "tags": ["authentication"],
+                "summary": "Bejelentkezés",
+                "description": "Bejelentkezés a megadott felhasználói adatokkal.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "example": {
+                                "email": "student001@jedlik.eu",
+                                "password": "student001"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "number",
+                                            "example": 401
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Wrong credentials provided"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/logout": {
+            "post": {
+                "tags": ["authentication"],
+                "summary": "Kijelentkezés",
+                "description": "Kijelentkezés. Kliens süti-token érvénytelenítése.",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/auth/register": {
+            "post": {
+                "tags": ["authentication"],
+                "summary": "Regisztráció",
+                "description": "Regisztráció a megadott adattokkal.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (Az új, elmentett felhasználó adataival tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
             "get": {
-                "tags": ["people"],
+                "tags": ["users"],
+                "summary": "Összes felhasználó lekérdezése.",
+                "description": "Az összes felhasználó adatát tudjuk lekérdezni.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/user"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["users"],
+                "summary": "Új felhasználó mentése.",
+                "description": "Új felhasználó mentése a 'felhasználó' táblában",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (Az új, elmentett felhasználótal tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "tags": ["users"],
+                "summary": "Egy felhasználó lekérdezése.",
+                "description": "Az id paraméterben megadott felhasználó adatait kérdezhetjük le.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A felhasználó azonosítója.",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "61b5e9c0f39e4edcf5b8a3b9"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ezzel az azonosítóval (id) nincs felhasználó!"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["users"],
+                "summary": "felhasználó módosítása (PATCH).",
+                "description": "A paraméterben megadott felhasználó adatait módosítja a végpont.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A PATCH metódussal módosítandó felhasználó azonosítója (PK).",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "61b5e9c0f39e4edcf5b8a3b9"
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (A módosított felhasználó adatokkal tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott felhasználó (id) nem létezik."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["users"],
+                "summary": "felhasználó törlése.",
+                "description": "A paraméterben megadott felhasználót törli a végpont.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A törlendő felhasználó azonosítója (PK).",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "61b5f28df39e4edcf5b8a3e7"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK (A felhasználó törölve.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "OK"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott felhasználó (id) nem létezik."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/person/{id}": {
+            "get": {
+                "tags": ["person"],
                 "summary": "Egy vendég lekérdezése.",
                 "description": "Az id paraméterben megadott vendég adatait kérdezhetjük le.",
                 "parameters": [
@@ -120,7 +463,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/people"
+                                    "$ref": "#/components/schemas/person"
                                 }
                             }
                         }
@@ -160,7 +503,7 @@
                 }
             },
             "patch": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "vendég módosítása (PATCH).",
                 "description": "A paraméterben megadott vendég adatait módosítja a végpont.",
                 "parameters": [
@@ -180,7 +523,7 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/people"
+                                "$ref": "#/components/schemas/person"
                             }
                         }
                     }
@@ -192,7 +535,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/people"
+                                    "$ref": "#/components/schemas/person"
                                 }
                             }
                         }
@@ -216,7 +559,7 @@
                 }
             },
             "put": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "vendég módosítása (PUT).",
                 "description": "A paraméterben megadott vendég adatait módosítja a végpont.",
                 "parameters": [
@@ -236,7 +579,7 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/people"
+                                "$ref": "#/components/schemas/person"
                             }
                         }
                     }
@@ -248,7 +591,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/people"
+                                    "$ref": "#/components/schemas/person"
                                 }
                             }
                         }
@@ -272,7 +615,7 @@
                 }
             },
             "delete": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "vendég törlése.",
                 "description": "A paraméterben megadott vendéget törli a végpont.",
                 "parameters": [
@@ -334,9 +677,9 @@
                 }
             }
         },
-        "/api/people/{kategoriaNev}/hirdetesek": {
+        "/api/person/{kategoriaNev}/hirdetesek": {
             "get": {
-                "tags": ["people"],
+                "tags": ["person"],
                 "summary": "foglalás lekérdezése vendég név szerint.",
                 "description": "A 'kategoriaNev' paraméterben megadott kategóriával és a vendég összes foglalásával tér vissza a végpont.",
                 "parameters": [
@@ -358,7 +701,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/people"
+                                    "$ref": "#/components/schemas/person"
                                 }
                             }
                         }
@@ -1051,6 +1394,19 @@
                         "type": "string",
                         "description": "Az ország, ahol a felhasználó él.",
                         "example": "Hungary"
+                    }
+                }
+            },
+            "ErrorSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "error.message value"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "example": 400
                     }
                 }
             },
