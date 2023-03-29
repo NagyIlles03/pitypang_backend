@@ -1,7 +1,7 @@
 import HttpException from "./HttpException";
 
-export default class RecipeNotFoundException extends HttpException {
+export default class BookingNotFoundException extends HttpException {
     constructor(id: string) {
-        super(404, `Recipe with id ${id} not found`);
+        super(404, `Booking with id ${id} not found`);
     }
 }
