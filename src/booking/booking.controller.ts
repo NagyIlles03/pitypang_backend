@@ -110,7 +110,7 @@ export default class BookingController implements IController {
             const bookingData: Ibooking = req.body;
             const createdbooking = new this.bookingM({
                 ...bookingData,
-                author: req.user._id,
+                person: req.user._id,
             });
             const savedbooking = await createdbooking.save();
             await savedbooking.populate("person");
