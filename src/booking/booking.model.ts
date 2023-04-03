@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 import IBooking from "./booking.interface";
+import IPerson from "person/person.interface";
 
 const bookingSchema = new Schema<IBooking>(
     {
@@ -33,6 +34,10 @@ const bookingSchema = new Schema<IBooking>(
         nameId: {
             type: Number,
             required: true,
+        },
+        person: { // add the reference to the person schema
+            type: Number,
+            ref: "Person",
         },
     },
     { versionKey: false },

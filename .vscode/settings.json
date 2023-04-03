@@ -10,7 +10,8 @@
         "editor.formatOnSave": true
     },
     "[typescript]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "editor.minimap.enabled": false,
     "editor.wordWrap": "on",
